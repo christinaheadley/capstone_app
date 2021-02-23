@@ -1,0 +1,15 @@
+{
+  id: @comment.id,
+  user_id: @comment.user_id,
+  post_id: @comment.post_id,
+  body: @comment.body,
+  image_url: @comment.image_url,
+}
+
+# json.id @post.id
+# json.title @post.title
+# json.body @post.body
+# json.image @post.image
+# json.user_id @post.user_id
+# owner: @post.user_id == current_user.id
+# see 2/17/21 2:55pm ET

@@ -1,0 +1,16 @@
+{
+  id: @post.id,
+  user_id: @post.user_id,
+  title: @post.title,
+  body: @post.body,
+  image_url: @post.image_url,
+  claps: @post.claps
+}
+
+# json.id @post.id
+# json.title @post.title
+# json.body @post.body
+# json.image @post.image
+# json.user_id @post.user_id
+# owner: @post.user_id == current_user.id
+# see 2/17/21 2:55pm ET
