@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     patch "/comments/:id" => "comments#update"
     delete "/comments/:id" => "comments#destroy"
 
-
+    get "/tags" => "tags#index"
   end
 end

@@ -1,0 +1,8 @@
+
+  {
+    id: comment.id,
+    user_id: comment.user_id,
+    post_id: comment.post_id,
+    body: comment.body,
+    image_url: comment.image_url,
+  }

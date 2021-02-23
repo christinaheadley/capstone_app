@@ -1,10 +1,4 @@
-{
-  id: @comment.id,
-  user_id: @comment.user_id,
-  post_id: @comment.post_id,
-  body: @comment.body,
-  image_url: @comment.image_url,
-}
+render partial: "comment.json.jb", locals: { comment: @comment }
 
 # json.id @post.id
 # json.title @post.title
