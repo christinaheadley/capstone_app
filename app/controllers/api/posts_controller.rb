@@ -1,10 +1,10 @@
 class Api::PostsController < ApplicationController
 
-  before_action :authenticate_user, except: [:show]
-  # def index
-  #   @posts = Post.all
-  #   render "index.json.jb"
-  # end
+  before_action :authenticate_user, except: [:index, :show]
+  def index
+    @posts = Post.all
+    render "index.json.jb"
+  end
 
   def create
     @post = Post.new(
@@ -27,7 +27,7 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = current_user.posts.find_by(id: params[:id])
     @post.title = params[:title] || @post.title
     @post.body = params[:body] || @post.body
     @post.image_url = params[:image_url] || @post.image_url

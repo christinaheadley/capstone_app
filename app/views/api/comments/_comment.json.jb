@@ -5,4 +5,5 @@
     post_id: comment.post_id,
     body: comment.body,
     image_url: comment.image_url,
+    created_at: comment.created_at
   }

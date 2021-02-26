@@ -9,8 +9,8 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(
-    post_id: params[:post_id],
     user_id: current_user.id,
+    post_id: params[:post_id],
     body: params[:body],
     image_url: params[:image_url],
     )
@@ -27,7 +27,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find_by(id: params[:id])
+    @comment = current_user.comments.find_by(id: params[:id])
     @comment.post_id = params[:post_id] || @comment.post_id
     @comment.user_id = params[:user_id] || @comment.user_id
     @comment.body = params[:body] || @comment.body

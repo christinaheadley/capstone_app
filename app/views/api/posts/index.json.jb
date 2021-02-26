@@ -1,3 +1,8 @@
-@posts.map do |post|
-  render partial: "post.json.jb", locals: { post: post}
+posts = @posts.map do |post|
+  post_hash = render partial: "post.json.jb", locals: { post: post}
+  post_hash[:comment] = post.comments[0]
+  post_hash[:tags] = post.tags
+  post_hash
 end
+
+posts 

@@ -4,6 +4,6 @@
   title: post.title,
   body: post.body,
   image_url: post.image_url,
-  claps: post.claps
+  claps: post.claps,
+  created_at: post.created_at
 }
-end

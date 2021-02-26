@@ -1,5 +1,6 @@
-render partial: "comment.json.jb", locals: { comment: @comment }
+comment = render partial: "comment.json.jb", locals: { comment: @comment }
 
+comment
 # json.id @post.id
 # json.title @post.title
 # json.body @post.body
