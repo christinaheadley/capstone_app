@@ -3,6 +3,9 @@ post= render partial: "post.json.jb", locals: { post: @post}
 post[:comments] = @post.comments.map do |comment|
   render partial: "api/comments/comment.json.jb", locals: { comment: comment}
 end
+post[:tags] = @post.tags.map do |tag|
+  render partial: "api/tags/tag.json.jb", locals: { tag: tag}
+end
 post
 # json.id @post.id
 # json.title @post.title

@@ -1,11 +1,6 @@
 class Api::CommentsController < ApplicationController
 
-  before_action :authenticate_user, except: [:index, :show]
-
-  def index
-    @comments = Comment.all
-    render "index.json.jb"
-  end
+  before_action :authenticate_user
 
   def create
     @comment = Comment.new(
@@ -19,11 +14,6 @@ class Api::CommentsController < ApplicationController
     else
       render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @comment = Comment.find_by(id: params[:id])
-    render "show.json.jb"
   end
 
   def update

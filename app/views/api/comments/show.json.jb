@@ -1,5 +1,7 @@
 comment = render partial: "comment.json.jb", locals: { comment: @comment }
 
+
+
 comment
 # json.id @post.id
 # json.title @post.title
