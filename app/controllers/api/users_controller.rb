@@ -26,6 +26,10 @@ class Api::UsersController < ApplicationController
     @user = current_user 
     @user.user_name = params[:user_name] || @user.user_name
     @user.email = params[:email] || @user.email
+    if params[:password]
+      @user.password = params[:password]
+      @user.password_confirmation = params[:password_confirmation]
+    end
     @user.password = params[:password] || @user.password
     @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation
     @user.image_url = params[:image_url] || @user.image_url

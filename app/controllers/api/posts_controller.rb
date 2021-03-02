@@ -40,8 +40,8 @@ class Api::PostsController < ApplicationController
     @post.image_url = params[:image_url] || @post.image_url
     @post.claps = params[:claps] || @post.claps
     if @post.save
-      # delete each tag from post
-      @post.tag_ids = ""
+      # delete each post_tag from post
+      @post.post_tags.destroy_all
       #create post_tags and attach to this instance of post
       eval(params[:tag_ids]).each do |tag_id|
         PostTag.create(post_id: @post.id, tag_id: tag_id)
