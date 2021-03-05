@@ -38,7 +38,6 @@ class Api::PostsController < ApplicationController
     @post.title = params[:title] || @post.title
     @post.body = params[:body] || @post.body
     @post.image_url = params[:image_url] || @post.image_url
-    @post.claps = params[:claps] || @post.claps
     if @post.save
       # delete each post_tag from post
       @post.post_tags.destroy_all

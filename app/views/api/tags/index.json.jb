@@ -1,8 +1,5 @@
 @tags.map do |tag| 
   tag_hash = render partial: "tag.json.jb", locals: { tag: tag }
-  
-  tag_hash[:post] = tag.posts.each do |post|
-    render partial: "api/posts/post.json.jb", locals: { post: post }
-  end
+
   tag_hash
 end

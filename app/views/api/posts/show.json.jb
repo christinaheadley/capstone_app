@@ -6,9 +6,6 @@ end
 post[:tags] = @post.tags.map do |tag|
   render partial: "api/tags/tag.json.jb", locals: { tag: tag}
 end
-post[:post_tags] = @post.post_tags.map do |post_tag|
-  render partial: "api/post_tag.json.jb", locals: { post_tag: post_tag}
-end
 post
 # json.id @post.id
 # json.title @post.title

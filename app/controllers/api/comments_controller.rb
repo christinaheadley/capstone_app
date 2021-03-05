@@ -18,8 +18,6 @@ class Api::CommentsController < ApplicationController
 
   def update
     @comment = current_user.comments.find_by(id: params[:id])
-    @comment.post_id = params[:post_id] || @comment.post_id
-    @comment.user_id = params[:user_id] || @comment.user_id
     @comment.body = params[:body] || @comment.body
     @comment.image_url = params[:image_url] || @comment.image_url
     if @comment.save

@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
       bio: params[:bio]
     )
     if @user.save
-      render json: { message: "User created" }, status: :created
+      render "show.json.jb"
     else
       render json: { errors: @user.errors.full_messages }, status: :bad_request
     end
