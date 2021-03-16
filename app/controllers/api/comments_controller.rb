@@ -1,7 +1,15 @@
 class Api::CommentsController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_user, except: [:show]
 
+  # def show
+  #   @comment = Comment.find_by(id: params[:id])
+  #   if @comment
+  #     render "show.json.jb"
+  #   else
+  #     render json: {message: "No comments yet."}
+  #   end
+  # end
   def create
     @comment = Comment.new(
     user_id: current_user.id,

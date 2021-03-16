@@ -1,17 +1,18 @@
 post = render partial: "post.json.jb", locals: { post: @post}
 
 post[:comments] = @post.comments.map do |comment|
-  render partial: "api/comments/comment.json.jb", locals: { comment: comment}
+  comment_hash =  render partial: "api/comments/comment.json.jb", locals: { comment: comment}
+  comment_hash[:user] = render partial: "api/users/user.json.jb", locals: { user: comment.user }
+  comment_hash
 end
+
 post[:tags] = @post.tags.map do |tag|
   render partial: "api/tags/tag.json.jb", locals: { tag: tag}
 end
-post[:users] = render partial: "api/users/user.json.jb", locals: { user: @post.user }
+
+post[:user] = render partial: "api/users/user.json.jb", locals: { user: @post.user }
+
+if current_user
+  post[:owner] = @post.user_id == current_user.id
+end
 post
-# json.id @post.id
-# json.title @post.title
-# json.body @post.body
-# json.image @post.image
-# json.user_id @post.user_id
-# owner: @post.user_id == current_user.id
-# see 2/17/21 2:55pm ET
