@@ -13,7 +13,6 @@ class Api::PostsController < ApplicationController
       title: params[:title],
       body: params[:body],
       image_url: params[:image_url],
-      claps: 0
     )
     if @post.save
       # make a bunch of post_tags that use various tag ids, and this new post's id
@@ -58,4 +57,11 @@ class Api::PostsController < ApplicationController
       render json: {message: "Not authorized"}
     end
   end
+
+  # def upvote
+  #   @post = Post.find(params[:id])
+  #   @post.claps.create
+  #   redirect_to(posts_index)
+    
+  # end
 end

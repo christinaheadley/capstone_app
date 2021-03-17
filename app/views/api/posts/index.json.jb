@@ -1,20 +1,32 @@
 @posts.map do |post|
   post_hash = render partial: "post.json.jb", locals: { post: post }
 
-  post_hash[:comment] = post.comments.last do |comment|
-    render partial: "api/comments/comment.json.jb", locals: { comment: comment}
-  end
- 
-
-  post_hash[:tags] = post.tags.map do |tag|
-    render partial: "api/tags/tag.json.jb", locals: { tag: tag }
-  end
-
   post_hash[:user] = post.user do |user|
     render partial: "api/users/user.json.jb", locals: { user: user}
   end
 
+  
+  post_hash[:tags] = post.tags.map do |tag|
+    render partial: "api/tags/tag.json.jb", locals: { tag: tag }
+  end
+  
+  post_hash[:claps] = post.claps.map do |clap|
+    render partial: "api/claps/clap.json.jb", locals: {clap: clap }
+  end
+
+  post_hash[:comment] = post.comments.last do |comment|
+
+      comment_hash = render partial: "api/comments/comment.json.jb", locals: { comment: comment}
+    
+      comment_hash[:user] = render partial: "api/users/user.json.jb", locals: { user: user}
+     
+      comment_hash
+    end
+  end
+
+
   post_hash
+  # comment_hash
   
 end
 

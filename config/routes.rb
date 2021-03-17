@@ -21,5 +21,15 @@ Rails.application.routes.draw do
     delete "/comments/:id" => "comments#destroy"
 
     get "/tags" => "tags#index"
+
+    post "/claps/" => "claps#create"
+    patch "/claps/:id" => "claps#update"
+
+    # resources :posts do
+    #   member do
+    #     # post 'upvote'
+    #     put "clap", to: "posts#upvote"
+    #   end
+    # end
   end
 end

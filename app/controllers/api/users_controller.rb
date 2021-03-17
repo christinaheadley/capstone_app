@@ -30,8 +30,8 @@ class Api::UsersController < ApplicationController
       @user.password = params[:password]
       @user.password_confirmation = params[:password_confirmation]
     end
-    @user.password = params[:password] || @user.password
-    @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation
+    # @user.password = params[:password] || @user.password
+    # @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation
     @user.image_url = params[:image_url] || @user.image_url
     @user.bio = params[:bio] || @user.bio
 
@@ -40,14 +40,14 @@ class Api::UsersController < ApplicationController
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
+  end
 
-    def destroy
-      @user = current_user
-      if @user.destroy
-        render json: {message: "User deleted"}
-      else
-        render json: {message: "Unauthorized"}
-      end
+  def destroy
+    @user = current_user
+    if @user.destroy
+      render json: {message: "User deleted"}
+    else
+      render json: {message: "Unauthorized"}
     end
   end
 end
