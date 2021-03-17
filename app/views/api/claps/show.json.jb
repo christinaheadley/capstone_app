@@ -1,1 +1,0 @@
-render partial: "clap.json.jb", local: { clap: @clap }

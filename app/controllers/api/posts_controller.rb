@@ -58,10 +58,10 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  # def upvote
-  #   @post = Post.find(params[:id])
-  #   @post.claps.create
-  #   redirect_to(posts_index)
-    
-  # end
+  def clap
+    @post = Post.find(params[:id])
+    @post.claps += 1
+    @post.save
+    render json: { message: "Clap added!" }
+  end
 end

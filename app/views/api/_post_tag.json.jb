@@ -1,5 +1,0 @@
-{
-  id: post_tag.id,
-  post_id: post_tag.post_id,
-  tag_id: post_tag.tag_id
-}

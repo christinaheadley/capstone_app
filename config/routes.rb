@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "/posts/:id" => "posts#show"
     patch "/posts/:id" => "posts#update"
     delete "/posts/:id" => "posts#destroy"
+    post "/posts/:id/clap" => "posts#clap"
 
     post "/sessions" => "sessions#create" 
     post "/users" => "users#create"
@@ -22,14 +23,6 @@ Rails.application.routes.draw do
 
     get "/tags" => "tags#index"
 
-    post "/claps/" => "claps#create"
-    patch "/claps/:id" => "claps#update"
-
-    # resources :posts do
-    #   member do
-    #     # post 'upvote'
-    #     put "clap", to: "posts#upvote"
-    #   end
-    # end
+   
   end
 end
