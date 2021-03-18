@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     delete "/comments/:id" => "comments#destroy"
 
     get "/tags" => "tags#index"
+    get "/gifs" => "gifs#index"
+    get "/gifs/search" => "gifs#show"
 
    
   end

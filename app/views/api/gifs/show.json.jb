@@ -1,0 +1,6 @@
+@gifs
+.map do |gif|{
+
+  small_gif: gif["images"]["downsized"]["url"]
+}
+end
