@@ -25,5 +25,13 @@ class ApplicationController < ActionController::Base
       render json: {}, status: :unauthorized
     end
   end
+  def index
+    @gifs = HTTP.get("http://api.giphy.com/v1/gifs/trending?&api_key=#{Rails.application.credentials.giphy_api[:api_key]}").parse["data"]
+    render "index.json.jb"
+  end
 
+  def show
+    @gifs = HTTP.get("http://api.giphy.com/v1/gifs/search?api_key=#{Rails.application.credentials.giphy_api[:api_key]}&q=#{params[:search_terms]}&limit=25&offset=0&rating=pg").parse["data"]
+    render "index.json.jb"
+  end
 end
