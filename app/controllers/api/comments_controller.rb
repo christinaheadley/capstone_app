@@ -16,6 +16,7 @@ class Api::CommentsController < ApplicationController
     post_id: params[:post_id],
     body: params[:body],
     image_url: params[:image_url],
+    gif_url: params[:gif_url],
     )
     if @comment.save
       render "show.json.jb"

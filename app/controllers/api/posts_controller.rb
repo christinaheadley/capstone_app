@@ -18,7 +18,7 @@ class Api::PostsController < ApplicationController
     if @post.save
       # make a bunch of post_tags that use various tag ids, and this new post's id
       # Once testing in frontend, take off eval method
-      eval(params[:tag_ids]).each do |tag_id|
+      params[:tag_ids].each do |tag_id|
         PostTag.create(post_id: @post.id, tag_id: tag_id)
       end
       render "show.json.jb"
@@ -41,7 +41,7 @@ class Api::PostsController < ApplicationController
       # delete each post_tag from post
       @post.post_tags.destroy_all
       #create post_tags and attach to this instance of post
-      eval(params[:tag_ids]).each do |tag_id|
+      params[:tag_ids].each do |tag_id|
         PostTag.create(post_id: @post.id, tag_id: tag_id)
       end
       render "show.json.jb"

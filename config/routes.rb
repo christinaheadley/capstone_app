@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
     get "/tags" => "tags#index"
     get "/gifs" => "gifs#index"
-    get "/gifs/search" => "gifs#show"
+    get "/gifs/search" => "gifs#gif_search_index"
 
    
   end
