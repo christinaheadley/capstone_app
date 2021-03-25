@@ -2,14 +2,4 @@ comment = render partial: "comment.json.jb", locals: { comment: @comment }
 
 comment[:user] = render partial: "api/users/user.json.jb", locals: { user: @comment.user }
 
-
-
-
 comment
-# json.id @post.id
-# json.title @post.title
-# json.body @post.body
-# json.image @post.image
-# json.user_id @post.user_id
-# owner: @post.user_id == current_user.id
-# see 2/17/21 2:55pm ET

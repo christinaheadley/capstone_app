@@ -29,6 +29,7 @@ class Api::CommentsController < ApplicationController
     @comment = current_user.comments.find_by(id: params[:id])
     @comment.body = params[:body] || @comment.body
     @comment.image_url = params[:image_url] || @comment.image_url
+    @comment.gif_url = params[:gif_url] || @comment.gif_url
     if @comment.save
       render "show.json.jb"
     else

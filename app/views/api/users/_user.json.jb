@@ -3,5 +3,6 @@
   user_name: user.user_name,
   email: user.email,
   bio: user.bio,
-  image_url: user.image_url
+  image_url: user.image_url,
+  location: user.location
 }

@@ -7,6 +7,9 @@
     render partial: "api/tags/tag.json.jb", locals: { tag: tag }
   end
   if post.comments.any?
+    post_hash[:comments] = post.comments.map do |comment|
+      render partial: "api/comments/comment.json.jb", locals: { comment: comment }
+    end
     post_hash[:comment] = render partial: "api/comments/comment.json.jb", locals: { comment: post.comments.last }
     post_hash[:comment][:user] = render partial: "api/users/user.json.jb", locals: { user: post.comments.last.user}
 
