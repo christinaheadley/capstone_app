@@ -26,5 +26,10 @@ Rails.application.routes.draw do
     get "/gifs/search" => "gifs#gif_search_index"
 
    
+    get "/*path" => proc { [200, {}, [ActionView::Base.new.render(file: 'public/index.html')]] } 
   end
+
+
+
+
 end
